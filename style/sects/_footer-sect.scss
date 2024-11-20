@@ -1,0 +1,71 @@
+#footer-sect {
+  padding-bottom: 2.25vw;
+
+  .primary-link {
+    margin-bottom: 3.125vw;
+    text-align: left;
+
+    h1 .svg-icon {
+      height: 0.7em;
+      width: 0.7em;
+      margin-left: 0.13em;
+      transition: margin 0.25s $primary-cubic-bezier;
+      will-change: margin;
+      display: inline-block;
+
+      path {
+        fill: var(--secondary-color);
+      }
+    }
+
+    &:hover {
+      text-decoration: underline 0.35em;
+
+      h1 .svg-icon {
+        margin-left: 0.65em;
+      }
+    }
+  }
+  .sub-cont {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    .subNavs {
+      width: max-content;
+
+      &:first-child {
+        margin-right: 5.625vw;
+      }
+    }
+  }
+  p {
+    text-transform: uppercase;
+    margin-top: 3.125vw;
+  }
+
+  @media screen and (max-width: 990px) {
+    padding-bottom: 3.875vw;
+
+    .primary-link {
+      margin-bottom: 23vw;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    padding-bottom: 7vw;
+
+    p {
+      margin-top: 15vw;
+    }
+    .sub-cont .subNavs:first-child {
+      margin-right: 9vw;
+    }
+  }
+  @media screen and (max-width: 417px) {
+    padding-bottom: 7vw;
+
+    .sub-cont .subNavs:first-child {
+      margin-right: 6.5vw;
+    }
+  }
+}

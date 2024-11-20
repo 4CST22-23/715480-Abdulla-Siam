@@ -1,0 +1,197 @@
+#hero-sect {
+  min-height: var(--vh, 100vh);
+  padding-top: 2.25vw;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    transform: translateY(-300%);
+    transition: transform 0.65s 2.5s $primary-cubic-bezier;
+    will-change: transform;
+
+    a,
+    p,
+    button {
+      width: max-content;
+    }
+    .logo {
+      height: 1.875vw;
+      width: 1.875vw;
+
+      .svg-icon {
+        height: 100%;
+        width: 100%;
+        display: block;
+
+        path {
+          fill: var(--secondary-color);
+        }
+      }
+    }
+    #modeChanger {
+      margin: 0 auto;
+    }
+    .singleLinks {
+      margin-left: auto;
+    }
+  }
+  h1 {
+    height: min-content;
+    line-height: 100%;
+    margin: 3vw 0;
+    margin-left: 9.5vw;
+    transition: margin-left 0.65s 2.5s $primary-cubic-bezier, transform 70ms;
+    overflow: hidden;
+    will-change: margin, transform;
+
+    span {
+      display: block;
+      transform: translateY(100%);
+      transition: transform 0.65s 1.5s $primary-cubic-bezier;
+    }
+    &.last-h {
+      text-align: right;
+      margin: 0;
+      margin-right: 9.5vw;
+      margin-bottom: 1.5vw;
+      transition: margin-right 0.65s 2.5s $primary-cubic-bezier, transform 70ms;
+
+      span {
+        transform: translateY(-100%);
+      }
+    }
+  }
+
+  .sub-cont {
+    height: var(--vh, 100vh);
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    transition: opacity 0.65s 2.5s $primary-cubic-bezier;
+    will-change: opacity;
+
+    .img {
+      height: 85%;
+      width: 39%;
+      position: absolute;
+      bottom: 0;
+      right: 14.5vw;
+      opacity: 0.7;
+
+      img {
+        height: 100%;
+        width: 100%;
+        transition: transform 70ms;
+        will-change: transform;
+      }
+    }
+    p {
+      width: max-content;
+      text-transform: uppercase;
+      overflow: hidden;
+      position: absolute;
+      bottom: 3.25vw;
+
+      span {
+        animation: scroll-indicator 1.5s infinite both;
+        display: block;
+      }
+    }
+    #heroH1Point {
+      height: 5px;
+      width: 100%;
+      position: absolute;
+      top: 100vh;
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    nav .logo {
+      height: 2.5vw;
+      width: 2.5vw;
+    }
+    .sub-cont .img {
+      height: 79vh;
+      width: 41vw;
+      right: 9.5vw;
+    }
+  }
+  @media screen and (max-width: 990px) {
+    padding-top: 3.875vw;
+
+    .sub-cont .img {
+      height: 75vh;
+      width: 61vw;
+      right: var(--grid-padding);
+      bottom: 5vw;
+    }
+    h1 {
+      margin-top: 4.75vw;
+
+      &.last-h {
+        margin-top: auto;
+      }
+    }
+    .sub-cont p {
+      writing-mode: vertical-rl;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    padding-top: 7vw;
+
+    nav {
+      .logo {
+        height: 5.75vw;
+        width: 5.75vw;
+      }
+      #modeChanger {
+        margin-left: 0;
+      }
+    }
+    .sub-cont .img {
+      height: 69vh;
+      width: 70vw;
+      right: var(--grid-padding);
+      bottom: 13vw;
+    }
+    h1 {
+      margin-top: 15vw;
+      margin-left: 0;
+
+      &.last-h {
+        margin-bottom: 7.5vw;
+        margin-right: 0;
+      }
+    }
+    .sub-cont p {
+      bottom: 30vh;
+    }
+  }
+
+  @media screen and (max-width: 417px) {
+    .sub-cont .img {
+      height: 70vh;
+      width: 73.5vw;
+      bottom: 15vw;
+    }
+  }
+}
+
+@keyframes scroll-indicator {
+  0% {
+    transform: translateY(-100%);
+  }
+  30%,
+  70% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}

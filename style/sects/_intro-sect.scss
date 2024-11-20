@@ -1,0 +1,38 @@
+#intro-sect {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+
+  h2 {
+    margin-bottom: 3.125vw;
+  }
+  h4 {
+    position: relative;
+    margin: auto 0 0 auto;
+  }
+
+  @media screen and (max-width: 1300px) {
+    h2 {
+      grid-column: 1 / -1;
+    }
+    h4 {
+      grid-column: 2 / -1;
+    }
+    p {
+      grid-row: 2;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    grid-template-columns: auto;
+
+    h2 {
+      margin-bottom: 5.5vw;
+    }
+    h4 {
+      grid-row: 3;
+      grid-column: 1;
+      margin-top: 5.5vw;
+      text-align: right;
+    }
+  }
+}

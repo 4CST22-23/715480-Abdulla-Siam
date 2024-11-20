@@ -1,0 +1,116 @@
+body {
+  #preLoader {
+    height: var(--vh, 100vh);
+    width: 100vw;
+    background-color: var(--primary-color);
+    padding: 2.25vw var(--grid-padding);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+
+    .loading-animation {
+      margin: 0;
+      position: absolute;
+      bottom: 1.5vw;
+      right: var(--grid-padding);
+
+      span {
+        &:nth-child(1) {
+          animation: loading 1.8s infinite;
+        }
+        &:nth-child(2) {
+          animation: loading 1.8s 0.6s infinite;
+        }
+        &:nth-child(3) {
+          animation: loading 1.8s 1.2s infinite;
+        }
+      }
+    }
+    &::after {
+      content: "";
+      height: var(--vh, 100vh);
+      width: 100vw;
+      background-color: var(--secondary-color);
+      transition: top 0.7s $primary-cubic-bezier;
+      position: absolute;
+      top: -100vh;
+      left: 0;
+      z-index: 1;
+      will-change: top;
+    }
+
+    @media screen and (max-width: 990px) {
+      padding-top: 7vw;
+    }
+    @media screen and (max-width: 750px) {
+      padding-top: 9vw;
+
+      .loading-animation {
+        font-size: 17vw;
+      }
+    }
+  }
+
+  &.loaded {
+    #preLoader {
+      animation: loaded 0.75s 0.75s $primary-cubic-bezier forwards;
+
+      .loading-animation {
+        span {
+          animation: none;
+        }
+      }
+      &::after {
+        top: 0;
+      }
+    }
+    #main-wrapper main #hero-sect {
+      nav {
+        transform: translateY(0);
+      }
+      h1 {
+        margin-left: 0;
+
+        span {
+          transform: translateY(0);
+        }
+        &.last-h {
+          margin-right: 0;
+
+          span {
+            transform: translateY(0);
+          }
+        }
+      }
+
+      .sub-cont {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes loaded {
+  0% {
+    opacity: 1;
+  }
+  50%,
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    z-index: -5;
+  }
+}

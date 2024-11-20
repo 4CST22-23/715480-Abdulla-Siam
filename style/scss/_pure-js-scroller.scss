@@ -1,0 +1,137 @@
+// ---
+// Here is scrollbar project's the CSS ---
+
+body {
+  &.activeThumbBody {
+    user-select: none;
+    cursor: grabbing;
+
+    #scrollpage0 {
+      pointer-events: none;
+    }
+  }
+  &.activeMiddleMouseBtn {
+    user-select: none;
+    cursor: all-scroll;
+
+    #scrollpage0 {
+      pointer-events: none;
+    }
+  }
+  .paralluxElements {
+    margin: 0;
+    transition: transform 70ms;
+    will-change: transform;
+  }
+}
+
+.parentScrollContainer {
+  // display: grid;
+  overflow: hidden;
+  // grid-template: auto 10px / auto 10px;
+  // touch-action: none;
+  position: relative;
+
+  .scrollpageContainer {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    .scrollpage {
+      width: max-content;
+      height: max-content;
+      transition: transform 0.65s $primary-cubic-bezier;
+      will-change: transform;
+      // transform: translate(0, 0);
+      display: block;
+
+      &.activeThumbPage {
+        transition: 0s;
+      }
+    }
+  }
+  .scrollbarContainer {
+    width: clamp(5px, 0.625vw, 20px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+
+    .thumbContainer {
+      width: 100%;
+      height: 100%;
+
+      .thumb {
+        width: 100%;
+        height: 40px;
+        border-radius: 20px;
+        background-color: var(--secondary-color);
+        opacity: 0.5;
+        transition: transform 0.65s $primary-cubic-bezier;
+        will-change: transform;
+
+        &.activeThumb {
+          transition: 0s;
+          opacity: 1;
+
+          &:hover {
+            opacity: 1;
+            cursor: grabbing;
+          }
+        }
+        &:hover {
+          opacity: 0.7;
+          cursor: grab;
+        }
+      }
+    }
+
+    &.barX {
+      width: 100%;
+      height: clamp(5px, 0.625vw, 20px);
+      flex-direction: row;
+      top: unset;
+      right: unset;
+      bottom: 0;
+      left: 0;
+
+      .thumbContainer {
+        .thumb {
+          width: 40px;
+          height: 100%;
+        }
+      }
+    }
+  }
+  &.hideScrollbarX {
+    .scrollbarContainer.barX {
+      height: 0px;
+    }
+    // grid-template-rows: auto 0px;
+  }
+  &.hideScrollbarY {
+    .scrollbarContainer.barY {
+      width: 0px;
+    }
+    // grid-template-columns: auto 0px;
+  }
+  &.fixedWidth .scrollpageContainer .scrollpage {
+    width: 100%;
+    height: max-content;
+  }
+  &.fixedHeight .scrollpageContainer .scrollpage {
+    height: 100%;
+    width: max-content;
+  }
+
+  @media screen and (max-width: 990px) {
+    .scrollpageContainer .scrollpage {
+      transition: transform 0.5s $primary-cubic-bezier;
+    }
+  }
+}

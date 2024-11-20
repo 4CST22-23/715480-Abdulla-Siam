@@ -1,0 +1,229 @@
+#projects-sect {
+  h1 {
+    margin-bottom: 180px;
+  }
+  .project-cont {
+    margin-bottom: 9.375vw;
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    .sticky-cont {
+      margin: 4.125vw 5.625vw 5.625vw 0;
+
+      .project-date {
+        font-size: 1.875vw;
+        writing-mode: vertical-rl;
+        padding-top: 1.5vw;
+        transform: translateY(0px);
+        transition: none;
+        will-change: transform;
+      }
+    }
+    .projects {
+      width: 100%;
+      display: block;
+
+      .project {
+        margin-bottom: 9.375vw;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+
+        a.img {
+          grid-column: 1 / 3;
+          height: 47vw;
+          width: 100%;
+          background-color: var(--secondary-color);
+          margin-bottom: 1.5vw;
+          position: relative;
+          overflow: hidden;
+
+          img {
+            height: 100%;
+            width: 100%;
+            background: none;
+            transform-origin: center;
+            will-change: transform, filter;
+          }
+          &::before {
+            content: "Loading...";
+            height: max-content;
+            width: max-content;
+            color: var(--primary-color);
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+          }
+        }
+        .details-cont {
+          height: max-content;
+          position: relative;
+          margin: 2.125vw 0 0 2.125vw;
+
+          p {
+            width: 15.625vw;
+            margin-left: 0;
+          }
+          .sub-cont {
+            margin-top: 1.5vw;
+
+            .singleLinks {
+              height: max-content;
+              width: max-content;
+              margin-left: 0;
+              margin-top: 2.875vw;
+            }
+          }
+        }
+
+        .singleLinks {
+          height: max-content;
+          width: max-content;
+          margin-left: auto;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    h1 {
+      margin-bottom: 10.5vw;
+    }
+
+    .project-cont {
+      margin-bottom: 9.5vw;
+
+      .sticky-cont {
+        margin: 5vw 5.5vw 7vw 0;
+
+        .project-date {
+          font-size: 2.375vw;
+          padding-top: 2.5vw;
+        }
+      }
+      .projects .project {
+        margin-bottom: 9.5vw;
+
+        a.img {
+          height: 55vw;
+          margin-bottom: 2.5vw;
+        }
+        .details-cont {
+          margin: 7vw 0 0 2.5vw;
+
+          p {
+            width: 15vw;
+            display: none;
+          }
+          .sub-cont {
+            margin-top: 0;
+
+            p {
+              display: block;
+            }
+            .singleLinks {
+              margin-top: 3.5vw;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 990px) {
+    h1 {
+      margin-bottom: 15vw;
+    }
+
+    .project-cont {
+      margin-bottom: 11.75vw;
+
+      .sticky-cont {
+        margin: 5.5vw 4.5vw 8.5vw 0;
+
+        .project-date {
+          font-size: 2.5vw;
+          padding-top: 3.5vw;
+        }
+      }
+      .projects .project {
+        margin-bottom: 11.75vw;
+
+        a.img {
+          height: 65vw;
+          grid-column: 1/-1;
+        }
+        .singleLinks {
+          display: none;
+        }
+        .details-cont {
+          grid-column: 2;
+          margin: 0;
+          transform: none !important;
+        }
+        h3 {
+          grid-column: 1;
+          grid-row: 2;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 750px) {
+    h1 {
+      margin-bottom: 19vw;
+      transition: none;
+    }
+    .project-cont {
+      margin-bottom: 17vw;
+
+      .sticky-cont {
+        margin: 10vw 5.75vw 15vw 0;
+
+        .project-date {
+          padding-top: 5vw;
+          font-size: 4.25vw;
+        }
+      }
+      .projects .project {
+        margin-bottom: 17vw;
+
+        a.img {
+          height: 71vw;
+        }
+        .details-cont {
+          display: none;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 417px) {
+    h1 {
+      margin-bottom: 23vw;
+    }
+    .project-cont {
+      margin-bottom: 19vw;
+
+      .sticky-cont {
+        margin: 20.5vw 3.5vw 20.5vw 0;
+
+        .project-date {
+          font-size: 4.75vw;
+        }
+      }
+      .projects .project {
+        margin-bottom: 19vw;
+
+        a.img {
+          height: 70vw;
+          margin-bottom: 5vw;
+        }
+      }
+    }
+  }
+}

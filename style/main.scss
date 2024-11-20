@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$primary-cubic-bezier: cubic-bezier(0.15, 0.35, 0.35, 0.95);
+
+:root {
+  --primary-color: rgb(19, 19, 19);
+  --secondary-color: rgb(236, 236, 236);
+  --noise: url("/img/noise-effect-2.png");
+  --grid-padding: 6.25vw;
+  --vh: 0px;
+}
+
+::selection {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+@import "./scss/preLoader";
+@import "./scss/common";
+@import "./scss/custom-cursor";
+@import "./scss/pure-js-scroller";
+@import "./fonts/Everett/font-everett";
+@import "./fonts/Inter/font-inter";
+
+body {
+  height: var(--vh, 100vh);
+  width: 100vw;
+  font-family: "Everett";
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  color: var(--secondary-color);
+  background: var(--primary-color);
+  position: relative;
+  transition: 0.45s $primary-cubic-bezier;
+  touch-action: none;
+
+  &::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: var(--noise);
+    pointer-events: none;
+    opacity: 0.39;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: noise-effect 0.5s steps(10) infinite;
+  }
+
+  #main-wrapper {
+    position: fixed; // This is must
+    top: 0; // This is must
+    left: 0; // This is must
+    height: 100%; // This is must
+    width: 100%; // This is must
+
+    main {
+      padding: 0 var(--grid-padding); // Must use paddind
+
+      @import "./sects/hero-sect";
+      @import "./sects/intro-sect";
+      @import "./sects/projects-sect";
+      @import "./sects/team-sect";
+      @import "./sects/footer-sect";
+    }
+  }
+  @import "./sects/form-sect";
+}
+
+@keyframes noise-effect {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
